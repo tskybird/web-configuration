@@ -1,0 +1,32 @@
+#app {
+    background-color: #eeedf4;
+}
+
+.navbar-light {
+    background-color:#7673F3;/* #6610f2;*/
+    box-shadow: 0 1px 3px rgba(122,108,133,.6);
+}
+
+a.router-link-exact-active{
+    color: #50B92D;
+    border-left: 2px solid #6f42c1;
+}
+
+
+.nav {
+    flex: 0 0 60px;
+    border-right: 1px solid #ccc;
+    background-color: #dfdff8;
+    a {        
+        border-bottom: 1px solid #ccc;
+        border-right: 1px solid #ccc;     
+        
+        }
+    a.router-link-exact-active{
+        color: #50B92D;
+        border-right: 1px solid #fff;
+        border-left: 2px solid #6f42c1;
+    }
+
+}
+border: 1px solid #ddcff4;

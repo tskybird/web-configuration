@@ -1,0 +1,140 @@
+{
+    "dhcpMode": "server",
+    "routes": [
+      {
+        "iface": "eth0",
+        "netmask": "255.255.255.0",
+        "network": "192.168.7.0",
+        "gateway": "*"
+      },
+      {
+        "iface": "br0",
+        "netmask": "255.255.255.0",
+        "network": "192.168.4.0",
+        "gateway": "*"
+      },
+      {
+        "iface": "eth0",
+        "netmask": "0.0.0.0",
+        "network": "default",
+        "gateway": "192.168.7.1",
+        "ip6Gateway": "fc00::c0:a8:2:1"
+      },
+      {
+        "gateway": "fc00::c0:a9:2:1",
+        "netmask": "0",
+        "network": "::",
+        "iface": "br0"
+      }
+    ],
+    "bridges": {
+      "bridge": {
+        "interface": [
+          "no",
+          "ra0"
+        ],
+        "name": "br0"
+      }
+    },
+    "interfaces": [
+      {
+        "name": "eth0",
+        "type": "lan",
+        "ipMethod": "dynamic",
+        "hwaddr": "00:11:33:FF:FF:64",
+        "ipAddress": [
+          "192.168.7.23/24"
+        ],
+        "ip6Address": [
+          "fe80::219:3bff:feff:68c7/64"
+        ],
+        "txDrops": 0,
+        "rxDrops": 0,
+        "txPackets": 7000,
+        "txBytes": 5555555,
+        "rxPackets": 10000,
+        "txErrors": 0,
+        "rxBytes": 1311338,
+        "rxErrors": 0
+      },
+      {
+        "name": "ath0",
+        "hwaddr": "00:11:33:FF:FF:65",
+        "ipAddress": false,
+        "ip6Address": [
+          "fe80::219:3bff:fefc:f460/64"
+        ],
+        "txDrops": 80,
+        "rxDrops": 0,
+        "txPackets": 0,
+        "txBytes": 0,
+        "rxPackets": 0,
+        "txErrors": 0,
+        "rxBytes": 0,
+        "rxErrors": 0
+      },
+      {
+        "name": "wifi0",
+        "ip6Method": "disabled",
+        "ip6Address": [],
+        "ipAddress": [],
+        "hwaddr": "00:11:33:FF:FF:64",
+        "rxErrors": 0,
+        "rxDrops": 0,
+        "ipMethod": "static",
+        "txDrops": 500,
+        "txErrors": 200000,
+        "txPackets": 80000,
+        "rxBytes": 1233333333,
+        "rxPackets": 60004,
+        "txBytes": 149323822
+      },
+      {
+        "name": "br0",
+        "type": "wan",
+        "ipMethod": "dynamic",
+        "ip6Method": "stateful",
+        "hwaddr": "00:11:33:FF:FF:64",
+        "ipAddress": [
+          "192.168.4.66/24",
+          "192.168.10.23/24"
+        ],
+        "ip6Address": [
+          "fc00::c0:a8:2:42/64",
+          "fe80::219:3bff:fefc:f460/64"
+        ],
+        "txDrops": 0,
+        "rxDrops": 0,
+        "txPackets": 9,
+        "txBytes": 513,
+        "rxPackets": 0,
+        "txErrors": 0,
+        "rxBytes": 0,
+        "rxErrors": 0
+      },
+      {
+        "name": "lo",
+        "ipAddress": [
+          "127.0.0.1/8"
+        ],
+        "txDrops": 0,
+        "rxDrops": 0,
+        "txPackets": 6,
+        "txBytes": 2500,
+        "rxPackets": 6,
+        "txErrors": 0,
+        "rxBytes": 2500,
+        "rxErrors": 0
+      }
+    ],
+    "dns": [
+      "192.168.7.1",
+      "8.8.8.8"
+    ],
+    "dns6": [
+      "fc00::c0:a8:2:3",
+      "2001:4860:4860::8844"
+    ],
+    "apTc": false
+  }
+  

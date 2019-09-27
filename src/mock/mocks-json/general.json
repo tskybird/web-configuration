@@ -1,0 +1,26 @@
+{
+    "licenseStatus": "valid",
+    "systemClock": "2019/02/20 20:30",
+    "operatingMode": "router",
+    "longitude": 0,
+    "latitude": 0,
+    "uptime": 1286088.2,
+    "currentLoad": "0",
+    "memory": {
+      "total": 29760,
+      "free": 1540
+    },
+    "firmwareVersion": {
+      "active": "1.v5.5.1234",
+      "backup": "1.v5.5.1233"
+    },
+    "skin": {
+      "version": "v6-EEE.11111",
+      "name": "XXXXX.XXX.zh_CN"
+    },
+    "serialNo": "0000000000000000",
+    "deviceName": "Device name",
+    "deviceLocation": "Device location",
+    "productName": "XXXXXX"
+  }
+  

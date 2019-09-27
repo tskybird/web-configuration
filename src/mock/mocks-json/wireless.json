@@ -1,0 +1,118 @@
+{
+    "peers": [
+      {
+        "mac": "00:11:33:FF:FF:67",
+        "vap": "ath0",
+        "deviceName": "Device name",
+        "ipAddress": "192.168.4.166",
+        "linkUptime": 4000,
+        "txRate": 300,
+        "rxRate": 300,
+        "signal": [
+          -57,
+          -60,
+          -68
+        ],
+        "protocol": "wjet",
+        "security": "open",
+        "txCcqPercent": 90,
+        "rxCcqPercent": 88,
+        "txBytes": 15890000,
+        "rxBytes": 11000000,
+        "txPackets": 30000,
+        "rxPackets": 30000,
+        "txRetryPercent": 20,
+        "rxDropPercent": 0,
+        "firmware": "XXXXX.QQ-1.v6-EEEEE.8888888",
+        "wjet": 4
+      },
+      {
+        "mac": "00:11:33:FF:FF:68",
+        "vap": "ath0",
+        "deviceName": "",
+        "ipAddress": "192.168.2.266",
+        "linkUptime": 3605,
+        "txRate": 270,
+        "rxRate": 270,
+        "signal": [
+          -56,
+          -58
+        ],
+        "protocol": "11n",
+        "security": "open",
+        "txCcqPercent": 92,
+        "rxCcqPercent": 86,
+        "txBytes": 54687854,
+        "rxBytes": 54657931,
+        "txPackets": 31829,
+        "rxPackets": 30060,
+        "txRetryPercent": 11,
+        "rxDropPercent": 0,
+        "firmware": "XXXXX.QQ-1.v6",
+        "wjet": 0
+      },
+      {
+        "mac": "00:11:33:FF:FF:69",
+        "vap": "ath0",
+        "deviceName": "Mock device",
+        "ipAddress": "192.168.3.8",
+        "linkUptime": 1209,
+        "txRate": 180,
+        "rxRate": 180,
+        "signal": [
+          -75,
+          -78
+        ],
+        "protocol": "11n",
+        "security": "open",
+        "txCcqPercent": 72,
+        "rxCcqPercent": 68,
+        "txBytes": 964,
+        "rxBytes": 123,
+        "txPackets": 15,
+        "rxPackets": 12,
+        "txRetryPercent": 15,
+        "rxDropPercent": 5,
+        "wjet": 7
+      }
+    ],
+    "vaps": [
+      {
+        "name": "ath0",
+        "radio": "wifi0",
+        "ssid": "SSID-name",
+        "wds": true,
+        "operationMode": "ap",
+        "peerCount": 3,
+        "maxPeerCount": 64,
+        "security": "open",
+        "hiddenSsid": true,
+        "vlan": 0
+      }
+    ],
+    "radios": {
+      "countryCode": "LT",
+      "operationMode": "ap",
+      "operationScenario": "ptp",
+      "dev": {
+        "wifi0": {
+          "radioMode": "MIMO 2x2",
+          "name": "wifi0",
+          "protocol": "11na",
+          "channel": 36,
+          "frequency": 5180,
+          "channelWidth": "20/40",
+          "txPower": 5,
+          "txPowerAdjusted": true,
+          "antennaGain": 15,
+          "noise": [
+            -95,
+            -95
+          ],
+          "wjet": 7
+        }
+      }
+    },
+    "qos": true
+  }
+  

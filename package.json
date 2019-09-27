@@ -1,0 +1,32 @@
+{
+  "name": "apcskin-vue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.22",
+    "@fortawesome/free-solid-svg-icons": "^5.10.2",
+    "@fortawesome/vue-fontawesome": "^0.1.6",
+    "axios": "^0.19.0",
+    "bootstrap": "^4.3.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.15.0",
+    "vue": "^2.6.10",
+    "vue-i18n": "^8.14.1",
+    "vue-router": "^3.1.2",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@kazupon/vue-i18n-loader": "^0.3.0",
+    "@vue/cli-service": "^3.11.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mockjs": "^1.0.1-beta3",
+    "vue-cli-plugin-i18n": "^0.6.0",
+    "vue-template-compiler": "^2.6.10"
+  }
+}

@@ -1,0 +1,55 @@
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import LoginPage from './components/LoginPage.vue'
+import Container from './components/Container'
+import Status from './components/status/Status'
+import Information from './components/status/Information'
+import StatusTabs from './components/status/StatusTabs'
+
+import Settings from './components/settings/Settings'
+import Wireless from './components/settings/Wireless'
+
+Vue.use(VueRouter)
+const routes =[
+    {
+        path:'/',
+        component: Container,
+        children: [
+            {
+                path:'/status',
+                component: Status,                
+                children:[
+                    {
+                        path: '/information', 
+                        component: Information
+                    }
+                ]
+            },
+            {
+                path:'/settings',
+                component:Settings,
+                children:[
+                    {
+                        path: '/wireless', 
+                        component: Wireless
+                    }
+                ]
+            },
+    
+    ]
+          
+
+    },
+
+
+
+    {
+        path:'/login',
+        component: LoginPage
+    }
+    
+]
+
+export default new VueRouter({
+      routes
+})
