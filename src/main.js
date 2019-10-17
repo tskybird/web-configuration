@@ -4,10 +4,9 @@ import router from '@/router'
 import App from '@/App.vue'
 import device from '@/device'
 
-//import $ from 'jquery'
 import 'bootstrap'
 import '@/assets/css/bootstrap.css'
-import '@/assets/css/color.less'
+//import '@/assets/css/color.less'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { 
@@ -34,11 +33,9 @@ library.add(
 )
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
-if (process.env. NODE_ENV == "development") {
+if (process.env.NODE_ENV == "development") {
   Mock.startMock();
 }
-
-
 
 Vue.prototype.$device = device
 new Vue({

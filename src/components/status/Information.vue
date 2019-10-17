@@ -15,19 +15,7 @@
                         <div id="firmware-status" class="pull-left">
                            <span>{{general.firmwareVersion}}</span>
                            <span ><a href="" data-toggle="modal" data-target="#fwupgrade">({{$t('Update')}})</a></span>
-                           <fw-upgrade id="fwupgrade"></fw-upgrade>
-                          <!--  <div class="modal" id="fwupgrade" tabindex="-1">                               
-                                <div class="modal-dialog">
-                                  <div class="modal-content">
-                                      <div class="modal-header">
-                                       Firmware update
-                                      </div>
-                                      <div class="modal-body"></div>
-                                      <div class="modal-footer"></div>
-                                   </div>
-                                </div>
-                          
-                           </div> -->
+                           <fw-upgrade id="fwupgrade"></fw-upgrade>                          
                         </div>
                     </dd>
                     <dt>{{$t('Device serial No.')}}:</dt><dd>{{general.serialNo}}</dd>
@@ -40,8 +28,7 @@
                 <dl class="dl-horizontal">
                     <dt>{{$t('Operating country')}}:</dt>
                     <dd>
-                        <span >LT</span>
-                        <!--<span class="text-muted" >Device № 13</span>-->
+                        <span >LT</span>                        
                     </dd>
                     <dt>{{$t('Friendly device name')}}:</dt><dd class="text-wrap" >{{general.deviceName}}</dd>
                     <dt>{{$t('Device location')}}:</dt><dd class="text-wrap" >{{general.deviceLocation}}</dd>
@@ -57,22 +44,6 @@
 import device from '@/device'
 import RefreshSpinner from '@/components/widgets/RefreshSpinner'
 import FwUpgrade from '@/components/widgets/FwUpgrade'
-
-function refreshStats () {
-    //this.isWaiting = true
-    device.statistics.load('general,wireless,network').then(
-            function(response){  //console.info('response:'+response.data)
-                next(
-                    vm=>{
-                        vm.general = response.data.general                        
-                        vm.wireless = response.data.wireless
-                        vm.network = response.data.network
-                        vm.isWaiting = false  
-                    }
-                )
-            }
-    )
-}
 
 export default {
     name: 'Information',
