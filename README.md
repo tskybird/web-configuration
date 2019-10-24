@@ -1,5 +1,8 @@
 # Web Configuration
 配置界面的登录页面，布局，国际化
+![image](https://github.com/tskybird/web-configuration/blob/master/ScreenShot/login.png)
+![image](https://github.com/tskybird/web-configuration/blob/master/ScreenShot/config.png)
+
 
 运行及构建 
 ```
