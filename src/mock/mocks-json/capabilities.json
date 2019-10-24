@@ -1,0 +1,61 @@
+{
+  "productName":"XXXXXX",
+  "firmwareId": "1.v5.5.1234",
+  "snmp":{
+    "enterpriseName":"DD",
+    "enterpriseOid":"333333"
+  },
+  "radios": {
+    "wifi0": {
+      "band5GHz": {
+        "maxTxPower": 25
+      },
+      "channelWidths": [
+        "5",
+        "10",
+        "20",
+        "40-",
+        "40+"
+      ],
+      "wirelessModes": ["a", "n"],
+      "label": "Radio 1"
+    }
+  },
+  "ethernet": {
+    "eth0": {
+      "label": "LAN0",
+      "device": "eth0",
+      "phyid": 1,
+      "speedLimit": 1000
+    },
+    "eth1": {
+      "label": "LAN1",
+      "device": "eth0",
+      "phyid": 2,
+      "speedLimit": 100
+    }
+  },
+   "leds":{
+      "power":{
+         "ledName":[
+            "LED1"
+         ]
+      },
+      "lan":{
+         "devName":"eth0",
+         "ledName":[
+            "LED2"
+         ]
+      },
+      "rssi":{
+         "devName":"wifi0",
+         "ledName":[
+            "LED3",
+            "LED4",
+            "LED5",
+            "LED6"
+         ]
+      }
+   },
+   "features":{ }
+}

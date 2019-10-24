@@ -8,12 +8,9 @@ export default {
             timeout: '300-600'   //default: '10-100', set ajax timeout. stimulate network transmission
         })
           
-        Mock.mock(/\/cgi-bin\/main.cgi\/login/, 'post', mocks.loginData)  
-             
+        Mock.mock(/\/cgi-bin\/main.cgi\/login/, 'post', mocks.loginData)              
         Mock.mock(/\/cgi-bin\/main.cgi\/statistics(\?type=[\w,]+)?/, 'get', mocks.statistics) //response: {status, data, header, statusText}
-        /*Mock.mock(/\/cgi-bin\/main.cgi\/statistics(\?type=[\w,]+)?/, 'get', function(){
-            console.log('mocks.isAuthorization:'+mocks.isAuthorization)
-            return mocks.isAuthorization ?  mocks.statistics : [401]
-        }) */ //response: {status, data, header, statusText}
+        Mock.mock(/\/cgi-bin\/main.cgi\/lan0data/, 'get', mocks.capabilities)
+        
     }
 }

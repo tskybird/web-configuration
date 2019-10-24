@@ -7,7 +7,16 @@ const store = new Vuex.Store({
     state: {
         token: null, 
         lastRoute: '/',
-        lang: 'en_US' //  'zh_CN'   
+        lang: 'en_US',     //  'zh_CN'
+        
+
+        LAN0: {   //capabilities
+            chartData: {
+               // tx: [],
+                //rx: []
+            }
+        }     
+       
     },
     mutations: {
         LOGIN: (state, token) => {

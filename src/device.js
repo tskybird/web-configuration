@@ -1,4 +1,3 @@
-//import axios from 'axios'
 import axios from '@/httpInterceptor'
 
 const statisticsUri = '/cgi-bin/main.cgi/statistics'
@@ -8,7 +7,7 @@ export default {
     login (userinfo) {
         return axios.post(loginUri, userinfo)
     },
-    statistics :{
+    statistics: {
         load(type='general') {
             return axios.get(
                 statisticsUri,
@@ -17,9 +16,10 @@ export default {
                 }
             )
         }
+    },
+    capabilities() {
+        return axios.get("/cgi-bin/main.cgi/lan0data")
     }
-
-
 }
 
 

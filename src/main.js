@@ -17,13 +17,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-//import axios from 'axios'
 import Mock from '@/mock'
-
 import { i18n } from './i18n'
 
+
 Vue.config.productionTip = false
-//Vue.prototype.$axios = axios;   // add instance property $axios
 
 library.add(
   faUser, faKey, faGlobeAsia, faSpinner,
@@ -38,6 +36,7 @@ if (process.env.NODE_ENV == "development") {
 }
 
 Vue.prototype.$device = device
+
 new Vue({
   store,
   router,
