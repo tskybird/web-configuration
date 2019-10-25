@@ -12,6 +12,13 @@ import device from "@/device"
 export default {
   name: "Echart",
   props: ['ifname','chartData'],  
+  data () {
+    return {
+        date: [0],
+        dataTx: [],
+        dataRx: [],
+    }
+  },
   computed: {  
     title() {
        return "Wireless (" + this.ifname + ") traffic (last 5 min.)";
@@ -21,14 +28,9 @@ export default {
     this.drawChart()    // 绘制图表
   },
   methods: {   
-    drawChart() {
-      let basetime = 0
-      let date = [0]
-      let dataTx = [] 
-      let dataRx = [] 
-
-      dataTx.push(this.chartData.tx)   // tx初始值
-      dataRx.push(this.chartData.rx)   // rx初始值
+    drawChart() {  
+      this.dataTx.push(this.chartData.tx)   // tx初始值
+      this.dataRx.push(this.chartData.rx)   // rx初始值
 
       let chart = echarts.init(document.getElementById("main"))
       chart.setOption({
@@ -58,8 +60,7 @@ export default {
             },
             axisLabel: {
               show: false
-            },
-            data: date
+            }            
           },
           yAxis: {
             min: 0,
@@ -85,14 +86,14 @@ export default {
               type: "line",
               smooth: true, 
               symbol: "none",
-              data: dataTx
+              data: this.dataTx
             },
             {
               name: "Rx, Mbps",
               type: "line",
               smooth: true, 
               symbol: "none",
-              data: dataRx, 
+              data: this.dataRx, 
               itemStyle: {
                 color: "#fd7e14"
               }
@@ -111,47 +112,33 @@ export default {
             }
           }
         ]
-      })      
-
-      function addData(shift) {    // 更新tx和rx的值
-          basetime += 10          
-          date.push(basetime)         
-          dataTx.push(Math.random() * 1000 + dataTx[dataTx.length-1])          
-          dataRx.push(Math.random() * 1000 + dataRx[dataRx.length-1])
-      }      
-       
-      //let vm = this
-      function interval(func, wait) {
-            let interv = function () {
-                func.call(null)
-                setTimeout(interv, wait)
-            }
-            setTimeout(interv, wait)
-      }
-
-      interval(function() {    //每隔1s更新一次数据
-          addData(true)
-          chart.setOption({
-              xAxis: {
-                  data: date 
-              },
-              series: [
-                  {
-                    name: 'Tx, Mbps',
-                    data: dataTx
-                  },
-                  {
-                    name: 'Rx, Mbps',
-                    data: dataRx
-                  }
-              ]
-          })
-      }, 1000)
-
+      })  
       window.onresize = function() {     // 图表尺寸随浏览器窗口的伸缩而变化
         chart.resize();
       }
     }
+  },
+  watch: {
+      chartData: {
+          deep: true,
+          handler (newval, oldval) {            
+            this.dataTx.push(newval.tx)
+            this.dataRx.push(newval.rx)
+            let chart = echarts.init(document.getElementById("main"))
+            chart.setOption({             
+              series: [
+                  {
+                    name: 'Tx, Mbps',
+                    data: this.dataTx
+                  },
+                  {
+                    name: 'Rx, Mbps',
+                    data: this.dataRx
+                  }
+              ]
+            })  
+          }
+      }
   }
 }
 </script>

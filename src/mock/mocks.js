@@ -1,7 +1,7 @@
 import generalData from './mocks-json/general.json'
 import wirelessData from './mocks-json/wireless.json'
 import networkData from './mocks-json/network.json'
-import capabilitiesData from './mocks-json/lan0data.json'
+import Mock from 'mockjs'
 
 //let isAuthorization = true  //cannot get the Authorization field of http request header,so mock
 export default {
@@ -45,7 +45,15 @@ export default {
         return allresource        
     },
     
-    capabilities: options => {        
-        return capabilitiesData
+    capabilities: options => {
+        let signalData = {
+            tx: 0,
+            rx: 0
+        }  
+        let dataTx =  Mock.Random.integer(0, 125000) 
+        let dataRx =  Mock.Random.integer(0, 125000) 
+        signalData.tx = dataTx
+        signalData.rx = dataRx 
+        return signalData
     }
 }

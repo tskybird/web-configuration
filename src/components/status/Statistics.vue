@@ -26,12 +26,41 @@ export default {
         device.capabilities().then(function(response) {
             next(
                 vm => {                  
-                  vm.chartData.tx = response.data.lan0.Tx                 
-                  vm.chartData.rx = response.data.lan0.Rx                  
-                  vm.flag = true                     
+                  vm.chartData.tx = response.data.tx                 
+                  vm.chartData.rx = response.data.rx                  
+                  vm.flag = true                                        
                 }
             ) 
-        })    
+        })
+    },
+    mounted () {
+        this.fresh(this.fetchData)
+    },
+    methods: {
+        fetchData() {
+            let vm = this
+            device.capabilities().then(function(response) {   
+                vm.chartData.tx = response.data.tx                 
+                vm.chartData.rx = response.data.rx                  
+                vm.flag = true                
+            }) 
+        },
+
+        fresh (fetchData) {            
+            function interval(func, wait) {
+                let interv = function () {
+                    func.call(null)
+                    setTimeout(interv, wait)
+                }
+                setTimeout(interv, wait)
+            }
+
+            interval(
+                function() {    //每隔1s更新一次数据
+                    fetchData()           
+                }, 
+            5000)
+        }
     }
 }
 </script>
