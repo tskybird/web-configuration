@@ -1,5 +1,5 @@
 <template>
-  <div id="app">    
+  <div id="app-router">    
     <nav-bar></nav-bar>
     <div class="container">
       <div class="view-wrap">
@@ -23,13 +23,11 @@ export default {
 </script>
 
 <style lang="less">
-html, body, #app,.view-wrap {  
-  height: 100%;
-}
 body.modal-open {
   overflow: visible;
 }
-#app {
+#app-router {
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;;
@@ -66,8 +64,6 @@ body.modal-open {
     color: #666;
   }
 }
-
-
 
 @media screen and (max-width: 576px) {
   .container {

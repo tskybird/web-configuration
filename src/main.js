@@ -37,9 +37,9 @@ if (process.env.NODE_ENV == "development") {
 
 Vue.prototype.$device = device
 
-new Vue({
+new Vue({   
   store,
   router,
   i18n,
-  render: function (h) { return h(App) }
+  render (h) { return h(App) }
 }).$mount('#app')

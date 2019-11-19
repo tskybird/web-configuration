@@ -58,6 +58,7 @@
 
 <script>
 import Mock from '../mock'
+import * as types from '@/store/mutation-types'
 
 export default {
     name: "loginPage",  
@@ -112,7 +113,7 @@ export default {
             this.$device.login(data).then(  //http://localhost:8080/cgi-bin/main.cgi/login             
                 function (response) { 
                     if (response.data.status) {
-                        vm.$store.commit('LOGIN', response.data.status)                                           
+                        vm.$store.commit(types.LOGIN, response.data.status) 
                         vm.$router.push(                            
                             vm.$store.state.lastRoute  //  route to the path which logout from
                             // '/'   // redirect to '/' every time

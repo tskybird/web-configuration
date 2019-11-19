@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2>{{$t('Network')}}</h2>       
-
+        <h2>{{$t('Network')}}</h2>    
+        
     </div>
 </template>
 

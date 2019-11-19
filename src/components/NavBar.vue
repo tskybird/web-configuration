@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import * as types from '@/store/mutation-types'
 export default {
   name: "Header", 
   mounted: function () {
@@ -103,8 +104,8 @@ export default {
   }, 
   methods: { 
     logout (state) {      
-      this.$store.commit('LOGOUT')     
-      this.$store.commit('lastRoute', this.$route.path)
+      this.$store.commit(types.LOGOUT)     
+      this.$store.commit(types.LAST_ROUTE, this.$route.path)
       this.$router.push('/login')     
     },
     save () {
