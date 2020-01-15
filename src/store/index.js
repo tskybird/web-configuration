@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as types from './mutation-types'
+//import * as types from './mutation-types'
+import types from './mutation-types'
 
 Vue.use(Vuex)
 const store = new Vuex.Store({

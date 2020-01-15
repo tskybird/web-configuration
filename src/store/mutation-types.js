@@ -1,4 +1,11 @@
-export const LOGOUT = 'LOGOUT'
-export const LOGIN = 'LOGIN'
-export const LAST_ROUTE = 'LAST_ROUTE'
-export const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
+const LOGOUT = 'LOGOUT'
+const LOGIN = 'LOGIN'
+const LAST_ROUTE = 'LAST_ROUTE'
+const CHANGE_LANGUAGE = 'CHANGE_LANGUAGE'
+
+export default {
+    LOGOUT,
+    LOGIN,
+    LAST_ROUTE,
+    CHANGE_LANGUAGE
+}

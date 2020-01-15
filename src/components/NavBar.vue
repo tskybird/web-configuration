@@ -96,7 +96,9 @@
 </template>
 
 <script>
-import * as types from '@/store/mutation-types'
+//import * as types from '@/store/mutation-types'
+import types from '@/store/mutation-types'
+
 export default {
   name: "Header", 
   mounted: function () {
