@@ -3,36 +3,42 @@ import VueRouter from 'vue-router'
 import store from '@/store'
 import { loadLanguageAsync } from '@/i18n'
 
-import LoginPage from '@/components/LoginPage'
+import LoginPage from 'views/login/LoginPage'
 
-import RouterContainer from '@/components/RouterContainer'
-import Content from '@/components/Content'
+import RouterContainer from 'views/RouterContainer'
+import Content from 'views/Content'
 
-import StatusTabs from '@/components/status/StatusTabs'
-import Information from '@/components/status/Information'
-import Statistics from '@/components/status/Statistics'
-import WirelessNetworks from '@/components/status/WirelessNetworks'
-import Network from '@/components/status/Network'
+import StatusTabs from 'views/status/StatusTabs'
+import Information from 'views/status/Information'
+import Statistics from 'views/status/Statistics'
+import WirelessNetworks from 'views/status/WirelessNetworks'
+import Network from 'views/status/Network'
 
-import SettingsTabs from '@/components/settings/SettingsTabs.vue'
-import WirelessConfig from '@/components/settings/WirelessConfig'
-import NetworkConfig from '@/components/settings/NetworkConfig'
-import Traffic from '@/components/settings/Traffic'
-import ServicesConfig from '@/components/settings/ServicesConfig'
-import SystemConfig from '@/components/settings/SystemConfig'
+import SettingsTabs from 'views/settings/SettingsTabs.vue'
+import WirelessConfig from 'views/settings/WirelessConfig'
+import NetworkConfig from 'views/settings/NetworkConfig'
+import Traffic from 'views/settings/Traffic'
+import ServicesConfig from 'views/settings/ServicesConfig'
+import SystemConfig from 'views/settings/SystemConfig'
 
-import ToolsTabs from '@/components/tools/ToolsTabs'
-import SiteSurvey from '@/components/tools/SiteSurvey'
-import AntennaAlignment from '@/components/tools/AntennaAlignment'
-import LinkTest from '@/components/tools/LinkTest'
-import SpectrumAnalyzer from '@/components/tools/SpectrumAnalyzer'
-import PingTrace from '@/components/tools/PingTrace'
+import ToolsTabs from 'views/tools/ToolsTabs'
+import SiteSurvey from 'views/tools/SiteSurvey'
+import AntennaAlignment from 'views/tools/AntennaAlignment'
+import LinkTest from 'views/tools/LinkTest'
+import SpectrumAnalyzer from 'views/tools/SpectrumAnalyzer'
+import PingTrace from 'views/tools/PingTrace'
 
-import SupportTabs from '@/components/support/SupportTabs'
-import TroubleShoot from '@/components/support/TroubleShoot'
-import SystemLog from '@/components/support/SystemLog'
+import SupportTabs from 'views/support/SupportTabs'
+import TroubleShoot from 'views/support/TroubleShoot'
+import SystemLog from 'views/support/SystemLog'
 
 Vue.use(VueRouter)
+
+// fix vue-router 3.1.X bug
+const routerPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+    return routerPush.call(this, location).catch(error => error)
+}
 
 const routes = [
     {
@@ -87,7 +93,7 @@ const routes = [
                 redirect: { name: 'wirelessconfig' },
                 components: {
                     tabs: SettingsTabs,
-                    content: Content     
+                    content: Content
                 },
                 children: [
                     {
@@ -177,8 +183,8 @@ const routes = [
         ]
     },
     {
-        path: '/login', 
-        name: 'login',       
+        path: '/login',
+        name: 'login',
         component: LoginPage
     }
 ]
@@ -188,28 +194,29 @@ if (window.localStorage.getItem('token')) {
     store.commit('LOGIN', window.localStorage.getItem('token'))
 }*/
 
-const router = new VueRouter({   
-    routes 
+const router = new VueRouter({
+    routes,
+    mode: 'history'
 })
 
-router.beforeEach((to, from, next) => {    
-    const lang = store.state.lang      
+router.beforeEach((to, from, next) => {
+    const lang = store.state.lang
     let requireAuth = to.matched.some(record => record.meta.requiresAuth)
-    if (requireAuth){   
-      if (!store.state.token ) { 
-        loadLanguageAsync(lang).then(() => {
-            next( '/login')
-        })       
-      }else {
-        loadLanguageAsync(lang).then(() => {
-            next( )
-        })
-      }
+    if (requireAuth) {
+        if (!store.state.token) {
+            loadLanguageAsync(lang).then(() => {
+                next('/login')
+            })
+        } else {
+            loadLanguageAsync(lang).then(() => {
+                next()
+            })
+        }
     } else {
         loadLanguageAsync(lang).then(() => {
-            next( )
-        })     
-    }  
+            next()
+        })
+    }
 })
 
 export default router

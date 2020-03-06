@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import VueI18n from 'vue-i18n'
 import messages from '@/locales/en_US.js'
-import store from '@/store'
 import axios from 'axios'
 
 Vue.use(VueI18n)
@@ -34,5 +33,5 @@ export function loadLanguageAsync(lang) {
       loadedLanguages.push(lang)      
       return setI18nLanguage(lang)
     }
-  )
+  ).catch(err=>console.log(err))
 }

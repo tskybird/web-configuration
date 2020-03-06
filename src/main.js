@@ -2,11 +2,11 @@ import Vue from 'vue'
 import store from '@/store'
 import router from '@/router'
 import App from '@/App.vue'
-import device from '@/device'
 
 import 'bootstrap'
-import '@/assets/css/bootstrap.css'
-//import '@/assets/css/color.less'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'assets/css/base.css'
+//import 'assets/css/color.less'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { 
@@ -19,7 +19,6 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import Mock from '@/mock'
 import { i18n } from './i18n'
-
 
 Vue.config.productionTip = false
 
@@ -34,8 +33,6 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 if (process.env.NODE_ENV == "development") {
   Mock.startMock();
 }
-
-Vue.prototype.$device = device
 
 new Vue({   
   store,
