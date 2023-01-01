@@ -25,9 +25,9 @@
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-service": "^5.0.8",
     "less": "^3.10.3",
-    "less-loader": "^5.0.0",
+    "less-loader": "^11.1.0",
     "mockjs": "^1.0.1-beta3",
     "vue-cli-plugin-i18n": "^0.6.0",
     "vue-template-compiler": "^2.6.10"
